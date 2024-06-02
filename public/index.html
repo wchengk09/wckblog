@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh-CN" lang="zh-CN">
+<head>
+  <link href="https://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="generator" content="Hugo 0.92.2" />
+
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>This is WCK blog</title>
+  <meta name="description" content="" />
+
+  
+  <link type="text/css" rel="stylesheet" href="/css/print.css" media="print">
+  <link type="text/css" rel="stylesheet" href="/css/poole.css">
+  <link type="text/css" rel="stylesheet" href="/css/syntax.css">
+  <link type="text/css" rel="stylesheet" href="/css/hyde.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Abril+Fatface|PT+Sans:400,400i,700">
+
+
+  
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+  <link rel="shortcut icon" href="/favicon.png">
+
+  <link href="https://cdn.bootcdn.net/ajax/libs/KaTeX/0.16.9/katex.min.css" rel="stylesheet">
+  <script src="https://cdn.bootcdn.net/ajax/libs/KaTeX/0.16.9/katex.min.js"></script>
+  <script src="https://cdn.bootcdn.net/ajax/libs/KaTeX/0.16.9/contrib/auto-render.min.js"></script>
+
+  <script>
+      document.addEventListener("DOMContentLoaded", function() {
+        console.log('rendering');
+        renderMathInElement(document.body,{delimiters: [
+          {left: "$$", right: "$$", display: true},
+          {left: "\\[", right: "\\]", display: true},
+          {left: "\\(", right: "\\)", display: false},
+          {left: '$', right: '$', display: false}
+        ]});
+      });
+  </script>
+
+  
+  <link href="/index.xml" rel="alternate" type="application/rss+xml" title="This is WCK blog" />
+  
+</head>
+
+  <body class=" ">
+  <aside class="sidebar">
+  <div class="container sidebar-sticky">
+    <div class="sidebar-about">
+      <a href="/"><h1>This is WCK blog</h1></a>
+      <p class="lead">
+      An elegant open source and mobile first theme for <a href="http://hugo.spf13.com">hugo</a> made by <a href="http://twitter.com/mdo">@mdo</a>. Originally made for Jekyll.
+      </p>
+    </div>
+
+    <nav>
+      <ul class="sidebar-nav">
+        <li><a href="/">Home</a> </li>
+        
+      </ul>
+    </nav>
+
+    <p>&copy; 2024. All rights reserved. </p>
+  </div>
+</aside>
+
+    <main class="content container">
+    <div class="posts">
+<article class="post">
+  <h1 class="post-title">
+    <a href="/geometry/area/">Area</a>
+  </h1>
+  <time datetime="2024-06-02T10:09:30&#43;0800" class="post-date">Sun, Jun 2, 2024</time>
+  求多边形的面积在计算几何中十分重要。本文将介绍计算几何中 简单多边形 的面积公式，及其证明。
+前置知识 简单多边形 如果一个多边形的任意两条边 除端点外不相交，则称该多边形是一个 简单多边形。
+例如，下图中的多边形 $ABCD$ 是一个简单多边形。
+而下图中的多边形 $EFGH$ 不是简单多边形，因为线段 $FG$ 和 $EH$ 相交了，且交点不是这两条边的端点。
+向量叉乘 定义 对于两个 二维 向量 $\textbf{a}$ 和 $\textbf{b}$，二者叉乘的结果是一个 标量：
+$\textbf{a}\times\textbf{b}=|\textbf{a}||\textbf{b}|sin\theta$
+上式中，$\times$ 表示叉乘，$\theta$ 是向量 $\textbf{a}$ 和向量 $\textbf{b}$ 的夹角。
+注意，此处 $\theta$ 的值是 有向夹角：如果 $\textbf a$ 在 $\textbf b$ 的 逆时针方向（即：向量 $\textbf b$ 逆时针旋转不超过 $180^\circ$ 后与向量 $\textbf a$ 共线），则 $\theta$ 的值为 负数，$\textbf a\times\textbf b$ 的结果也是负数；如果向量 $\textbf{a}$ 在向量 $\textbf{b}$ 的 顺时针方向，则 $\theta$ 的值为 正数，$\textbf a\times\textbf b$ 的结果也是正数。
+  
+  <div class="read-more-link">
+    <a href="/geometry/area/">Read More…</a>
+  </div>
+  
+</article>
+</div>
+    </main>
+
+    
+      
+    
+  </body>
+</html>

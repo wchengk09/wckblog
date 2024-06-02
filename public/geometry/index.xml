@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Geometries on This is WCK blog</title>
+    <link>/geometry/</link>
+    <description>Recent content in Geometries on This is WCK blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Sun, 02 Jun 2024 10:09:30 +0800</lastBuildDate><atom:link href="/geometry/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Area</title>
+      <link>/geometry/area/</link>
+      <pubDate>Sun, 02 Jun 2024 10:09:30 +0800</pubDate>
+      
+      <guid>/geometry/area/</guid>
+      <description>求多边形的面积在计算几何中十分重要。本文将介绍计算几何中 简单多边形 的面积公式，及其证明。
+前置知识 简单多边形 如果一个多边形的任意两条边 除端点外不相交，则称该多边形是一个 简单多边形。
+例如，下图中的多边形 $ABCD$ 是一个简单多边形。
+而下图中的多边形 $EFGH$ 不是简单多边形，因为线段 $FG$ 和 $EH$ 相交了，且交点不是这两条边的端点。
+向量叉乘 定义 对于两个 二维 向量 $\textbf{a}$ 和 $\textbf{b}$，二者叉乘的结果是一个 标量：
+$\textbf{a}\times\textbf{b}=|\textbf{a}||\textbf{b}|sin\theta$
+上式中，$\times$ 表示叉乘，$\theta$ 是向量 $\textbf{a}$ 和向量 $\textbf{b}$ 的夹角。
+注意，此处 $\theta$ 的值是 有向夹角：如果 $\textbf a$ 在 $\textbf b$ 的 逆时针方向（即：向量 $\textbf b$ 逆时针旋转不超过 $180^\circ$ 后与向量 $\textbf a$ 共线），则 $\theta$ 的值为 负数，$\textbf a\times\textbf b$ 的结果也是负数；如果向量 $\textbf{a}$ 在向量 $\textbf{b}$ 的 顺时针方向，则 $\theta$ 的值为 正数，$\textbf a\times\textbf b$ 的结果也是正数。</description>
+    </item>
+    
+  </channel>
+</rss>

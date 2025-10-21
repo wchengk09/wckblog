@@ -8,8 +8,10 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Area &middot; This is WCK blog</title>
-  <meta name="description" content="" />
+  <title>简单多边形面积公式及其证明 &middot; WCKblog</title>
+  
+  <meta name="description" content="求多边形的面积在计算几何中十分重要。本文将介绍计算几何中简单多边形的面积公式，及其证明。" />
+  <meta name="keywords" content="[多边形, 简单多边形, 面积, 面积公式, 计算几何, 算法, OI, 信息学, 信息学竞赛, 鞋带定理, 证明, 严格证明]" />
 
   
   <link type="text/css" rel="stylesheet" href="/css/print.css" media="print">
@@ -47,9 +49,9 @@
   <aside class="sidebar">
   <div class="container sidebar-sticky">
     <div class="sidebar-about">
-      <a href="/"><h1>This is WCK blog</h1></a>
+      <a href="/"><h1>WCKblog</h1></a>
       <p class="lead">
-      An elegant open source and mobile first theme for <a href="http://hugo.spf13.com">hugo</a> made by <a href="http://twitter.com/mdo">@mdo</a>. Originally made for Jekyll.
+      This is <a href="//wchengk09.netlify.app">WCK's</a> blog.
       </p>
     </div>
 
@@ -60,65 +62,65 @@
       </ul>
     </nav>
 
-    <p>&copy; 2024. All rights reserved. </p>
+    <p>&copy; 2025. All rights reserved. </p>
   </div>
 </aside>
 
     <main class="content container">
     <div class="post">
-  <h1>Area</h1>
+  <h1>简单多边形面积公式及其证明</h1>
   <time datetime=2024-06-02T10:09:30&#43;0800 class="post-date">Sun, Jun 2, 2024</time>
   <p>求多边形的面积在计算几何中十分重要。本文将介绍计算几何中 <strong>简单多边形</strong> 的面积公式，及其证明。</p>
 <h2 id="前置知识">前置知识</h2>
 <h3 id="简单多边形">简单多边形</h3>
 <p>如果一个多边形的任意两条边 <strong>除端点外不相交</strong>，则称该多边形是一个 <strong>简单多边形</strong>。</p>
 <p>例如，下图中的多边形 $ABCD$ 是一个简单多边形。</p>
-<p><img src="../images/area1.png" alt=""></p>
+<p><img src="./images/area1.png" alt=""></p>
 <p>而下图中的多边形 $EFGH$ 不是简单多边形，因为线段 $FG$ 和 $EH$ 相交了，且交点不是这两条边的端点。</p>
-<p><img src="../images/area2.png" alt=""></p>
+<p><img src="./images/area2.png" alt=""></p>
 <h3 id="向量叉乘">向量叉乘</h3>
 <h4 id="定义">定义</h4>
 <p>对于两个 <strong>二维</strong> 向量 $\textbf{a}$ 和 $\textbf{b}$，二者叉乘的结果是一个 <strong>标量</strong>：</p>
 <p>$\textbf{a}\times\textbf{b}=|\textbf{a}||\textbf{b}|sin\theta$</p>
 <p>上式中，$\times$ 表示叉乘，$\theta$ 是向量 $\textbf{a}$ 和向量 $\textbf{b}$ 的夹角。</p>
 <p>注意，此处 $\theta$ 的值是 <strong>有向夹角</strong>：如果 $\textbf a$ 在 $\textbf b$ 的 <strong>逆时针方向</strong>（即：向量 $\textbf b$ 逆时针旋转不超过 $180^\circ$ 后与向量 $\textbf a$ 共线），则 $\theta$ 的值为 <strong>负数</strong>，$\textbf a\times\textbf b$ 的结果也是负数；如果向量 $\textbf{a}$ 在向量 $\textbf{b}$ 的 <strong>顺时针方向</strong>，则 $\theta$ 的值为 <strong>正数</strong>，$\textbf a\times\textbf b$ 的结果也是正数。</p>
-<p>???+ note
-其实这个定义和<a href="../math/linear-algebra/product.md">三维向量的外积</a>很相似，只不过它返回的是一个标量，而不是一个向量。</p>
+<p>（其实这个定义和<strong>三维向量的外积</strong>很相似，只不过它返回的是一个标量，而不是一个向量。）</p>
 <h4 id="几何意义">几何意义</h4>
 <p>两个向量叉乘的结果表示的是 <strong>两个向量张成的平行四边形的面积</strong>，如下图所示。</p>
-<p><img src="../images/area3.png" alt=""></p>
+<p><img src="./images/area3.png" alt=""></p>
 <p>这个值除以 $2$，就是两个向量张成的 <strong>三角形</strong> 的面积。</p>
-<p><img src="../images/area4.png" alt=""></p>
+<p><img src="./images/area4.png" alt=""></p>
 <h4 id="坐标表示法">坐标表示法</h4>
 <p>在平面向量的坐标表示法中，对于点 $A(x_1,y_1)$,$B(x_2,y_2)$，则</p>
 <p>$\overrightarrow{OA}\times\overrightarrow{OB}=x_1y_2-x_2y_1$</p>
 <h2 id="简单多边形面积公式">简单多边形面积公式</h2>
 <p>对于一个简单多边形，设它的顶点分别为 $P_1,P_2,&hellip;,P_n$，满足点 $P_i$ 和点 $P_{(i\ mod\ n)\ +\ 1}$ 之间有边。</p>
 <p>任取一点 $O$（一般取原点），则该多边形的面积为</p>
-<p>$ S=\frac{1}{2}|\sum_{i=1}^n \overrightarrow{OP_i}\times\overrightarrow{OP_{(i\ mod\ n)\ +\ 1}}|  $</p>
-<p>???+ note
-这个公式通常被称为「鞋带定理」。</p>
+<p>$$ S=\frac{1}{2}|\sum_{i=1}^n \overrightarrow{OP_i}\times\overrightarrow{OP_{(i\ mod\ n)\ +\ 1}}|  $$</p>
+<blockquote>
+<p>这个公式通常被称为「鞋带定理」。</p>
+</blockquote>
 <h2 id="感性理解">感性理解</h2>
 <p>首先，我们可以把公式中的 $\frac{1}{2}$ 提进来，变成：</p>
-<p>$S=|\sum_{i=1}^n\frac{\overrightarrow{OP_i}\times\overrightarrow{OP_{(i\ mod\ n)\ +\ 1}}}{2}|$</p>
+<p>$$S=|\sum_{i=1}^n\frac{\overrightarrow{OP_i}\times\overrightarrow{OP_{(i\ mod\ n)\ +\ 1}}}{2}|$$</p>
 <p>想一想，$\frac{\overrightarrow{OP_i}\times\overrightarrow{OP_{(i\ mod\ n)\ +\ 1}}}{2}$ 是什么意思？</p>
 <p>没错，就是向量 $\overrightarrow{OP_i}$ 和 $\overrightarrow{OP_{(i\ mod\ n)\ +\ 1}}$ 张成的三角形的面积。</p>
 <p>再次强调，这里的面积是 <strong>有向面积</strong>，有时为正，有时为负（可参考上文中叉乘的定义）。</p>
 <p>那为什么这些三角形的面积之和就可以得到多边形的面积呢？</p>
 <p>举个例子吧。</p>
 <p>如下图所示，蓝色的多边形（$ABCD$）是我们要计算面积的简单多边形，点 $O$ 为原点。</p>
-<p><img src="../images/area5.png" alt=""></p>
+<p><img src="./images/area5.png" alt=""></p>
 <p>首先计算 $\overrightarrow{OA}\times\overrightarrow{OB}$，得到的是 $\Delta OAB$ 的面积。</p>
 <p>因为 $\overrightarrow{OA}$ 在 $\overrightarrow{OB}$ 的 <strong>顺时针方向</strong>，所以得到的面积是 <strong>正数</strong>，答案应该 <strong>加上</strong> 这一块的面积。（绿色表示加上，红色表示减去）</p>
-<p><img src="../images/area6.png" alt=""></p>
+<p><img src="./images/area6.png" alt=""></p>
 <p>然后计算 $\overrightarrow{OB}\times\overrightarrow{OC}$，得到的是 $\Delta OBC$ 的面积。因为 $OB$ 在 $OC$ 的 <strong>顺时针方向</strong>，所以得到的面积是 <strong>正数</strong>。</p>
-<p><img src="../images/area7.png" alt=""></p>
+<p><img src="./images/area7.png" alt=""></p>
 <p>接下来是 $\overrightarrow{OC}\times\overrightarrow{OD}$，得到 $\Delta OCD$ 的面积。因为 $\overrightarrow{OC}$ 在 $\overrightarrow{OD}$ 的 <strong>逆时针方向</strong>，所以得到的面积是 <strong>负数</strong>。</p>
-<p><img src="../images/area8.png" alt=""></p>
+<p><img src="./images/area8.png" alt=""></p>
 <p>$\overrightarrow{OD}\times\overrightarrow{OA}$，得到 $\Delta ODA$ 的面积。由于 $\overrightarrow{OD}$ 在 $\overrightarrow{OA}$ 的 <strong>逆时针方向</strong>，所以得到的面积是 <strong>负数</strong>。</p>
-<p><img src="../images/area9.png" alt=""></p>
+<p><img src="./images/area9.png" alt=""></p>
 <p>然后你神奇地发现：四边形 $OABC$ 被加了一次，减了一次，正好抵消了！这样，就只剩下（负的）四边形 $ABCD$ 的面积了。</p>
-<p><img src="../images/area10.png" alt=""></p>
+<p><img src="./images/area10.png" alt=""></p>
 <p>有同学可能会说：你这样求的面积是负的呀！</p>
 <p>但是别忘了，公式的最外面还有一个 <strong>绝对值</strong>，取了绝对值后，得到的面积就是正数了。</p>
 <h2 id="严格证明">严格证明</h2>
@@ -130,16 +132,14 @@
 <p>那么我们就需要证明：多边形内部的点都能对面积产生（$1$ 或 $-1$ 的）贡献，而多边形外部的点对多边形面积产生的贡献均为 $0$。</p>
 <h3 id="1-证明多边形内部的点都能产生贡献">1. 证明多边形内部的点都能产生贡献</h3>
 <p>对于多边形内部一点 $P$，我们可以引一条射线 $OP$，如下图所示。</p>
-<p><img src="../images/area11.png" alt=""></p>
+<p><img src="./images/area11.png" alt=""></p>
 <p>容易发现，对于多边形的一条边 $AB$，如果 $AB$ 不与射线 $OP$ 相交，或 $AB$ 与 $OP$ 的交点在 <strong>线段</strong>  $OP$ 上，那么 $\Delta OAB$ 一定不会包含点 $P$，因此点 $P$ 不会产生贡献。</p>
 <p>那么，我们只需要考虑与 $OP$ 交在 <strong>线段 $OP$ 延长线上</strong> 的边即可。</p>
 <p>如下图中的三条边 $BC,CD,DE$ 都符合这一条件，它们与 $OP$ 的交点分别为 $F,G,H$。</p>
-<p><img src="../images/area11.png" alt=""></p>
+<p><img src="./images/area11.png" alt=""></p>
 <p>可以发现，这样的边一定有 <strong>奇数条</strong>。如何证明？</p>
 <p>因为这些交点把 $OP$ 延长线分成了很多部分，而且这些部分，有些在多边形内部，有些在多边形外部，且内部和外部的部分是 <strong>交替出现</strong> 的。例如上图中，$PF$ 在多边形内部，$FG$ 在外部，$GH$ 在内部，$H$ 到无穷远处都在多边形的外部。</p>
 <p>同时，射线是无限长的，多边形却是有限的。因此最后一部分（点 $H$ 到无穷远处）一定在多边形外部。而点 $P$ 在多边形内部，因此分界点（交点）必须有 <strong>奇数</strong> 个，才能符合上述交替出现的性质。</p>
-<p>???+ note
-其实这也是<a href="./2d/#%E5%85%89%E7%BA%BF%E6%8A%95%E5%B0%84%E7%AE%97%E6%B3%95-ray-casting-algorithm">光影投射算法</a>的基本原理。</p>
 <p>并且我们发现，这些边有些是「从射线左边穿到右边」的（$CD$），有些是「从射线右边穿到左边」的（$BC$，$DE$），并且这两种边也是 <strong>交替出现</strong> 的。</p>
 <p>又因为这两种边的总数是 <strong>奇数</strong>，因此它们的数量一定 <strong>恰好差 $1$</strong>。</p>
 <p>对于一条边 $MN$，如果点 $M$ 在射线左侧，$N$ 在射线右侧，那么 $\overrightarrow{OM}$ 一定在 $\overrightarrow{ON}$ 的 <strong>逆时针方向</strong>，$\Delta OMN$ 的面积是 <strong>负数</strong>，点 $P$ 产生的贡献为 $-1$；同理可得，如果点 $M$ 在射线右侧，$N$ 在射线左侧，那么点 $P$ 产生的贡献为 $1$。</p>
@@ -152,33 +152,31 @@
 <p>但是，细心的同学可能注意到了一点：上述证明没有任何一步用到了「这个多边形是简单多边形」，但是这个公式却仅适用于简单多边形。</p>
 <p>到底哪里出问题了？</p>
 <p>我们画一个复杂多边形，用这个公式计算它的面积，看看哪里出了问题。</p>
-<p><img src="../images/area12.png" alt=""></p>
-<p>对于上图所示的复杂多边形 $ABCD$，我们用公式计算它的面积，发现：</p>
-<p><img src="../images/area13.png" alt=""></p>
+<p><img src="./images/area12.png" alt=""></p>
+<p>对于上图所示的复杂多边形 $ABCD$，我们用公式计算它的面积，发现：（大家可以在草稿纸上画一下）</p>
+<p><img src="./images/area13.png" alt=""></p>
 <p>有一部分的面积是正的，有一部分的面积是负的！将这两部分的面积相加，并不能正确得到这个复杂多边形的面积。</p>
 <p>因此，对于简单多边形，我们还需要证明：多边形内部的点对面积产生的贡献都是 <strong>同号</strong> 的，即：要么所有点产生的贡献都是 $1$，要么所有点产生的贡献都是 $-1$。</p>
 <p>仔细想一下，一个点产生贡献的正负性，跟什么有关？</p>
-<p>一个点 $P$ 产生贡献的正负性，只与「穿过线段 $OP$ 延长线的第一条边的方向」有关。</p>
-<p>???+ note &ldquo;解释&rdquo;
-「穿过线段 $OP$ 延长线的第一条边」指的是：多边形与线段 $OP$ 延长线相交的所有边中，交点离点  $P$ 最近的那条边。</p>
-<p>在下图中，穿过线段 $OP$ 延长线的第一条边是 $BC$，点 $B$ 在射线 $OP$ 右侧，点 $C$ 在射线 $OP$ 左侧，此时点 $P$ 产生的贡献为 $1$。</p>
-<p><img src="../images/area11.png" alt=""></p>
-<p>在下图中，穿过线段 $OP$ 延长线的第一条边 $BC$，点 $B$ 在射线 $OP$ 左侧，点 $C$ 在射线 $OP$ 右侧，此时点 $P$ 产生的贡献为 $-1$。</p>
-<p><img src="../images/area14.png" alt=""></p>
+<p>在分析这件事之前，我们再次观察一下这个公式：</p>
+<p>$$ S=\frac{1}{2}|\sum_{i=1}^n \overrightarrow{OP_i}\times\overrightarrow{OP_{(i\ mod\ n)\ +\ 1}}|  $$</p>
+<p>不难发现，这个公式相当于</p>
 <p>要想证明所有的点产生贡献的符号相同，我们只需要证明：对于任意一点 $P$，穿过线段 $OP$ 延长线的第一条边方向都相同就可以了。</p>
 <p>考虑 <strong>反证法</strong>，假设有两点 $P,Q$，穿过 $OP$ 和 $OQ$ 延长线的第一条边方向不同。那么必然有一条边是「从左边穿到右边」，有一条边是「从右边穿到左边」，如下图所示。</p>
-<p><img src="../images/area15.png" alt=""></p>
+<p><img src="./images/area15.png" alt=""></p>
 <p>问题来了：此时点 $B$ 必须和点 $C$ 连通，点 $D$ 也必须和点 $A$ 连通。应该怎么办？</p>
 <ul>
 <li>
-<p>方案一：点 $B$ 与点 $C$ 的连线经过线段 $CD$ 下方，此时 $CD$ 不再是第一条边了。<img src="../images/area16.png" alt=""></p>
+<p>方案一：点 $B$ 与点 $C$ 的连线经过线段 $CD$ 下方，此时 $CD$ 不再是第一条边了。<img src="./images/area16.png" alt=""></p>
 </li>
 <li>
-<p>方案二：点 $B$ 与点 $C$ 的连线经过线段 $DC$ 上方，点 $D$ 与点 $A$ 的连线也经过线段 $AB$ 上方。此时，这个多边形不再是简单多边形了。<img src="../images/area17.png" alt=""></p>
+<p>方案二：点 $B$ 与点 $C$ 的连线经过线段 $DC$ 上方，点 $D$ 与点 $A$ 的连线也经过线段 $AB$ 上方。此时，这个多边形不再是简单多边形了。<img src="./images/area17.png" alt=""></p>
 </li>
 </ul>
 <p>因此，假设不成立。这样，我们就证明了：对于任意一点 $P$，穿过线段 $OP$ 延长线的第一条边方向都相同就可以了。</p>
 <p>$Q.E.D$。</p>
+<p>需要说明的一点是，这个定理还有其它证明方法，有些比这个方法还简单，如 <a href="https://zhuanlan.zhihu.com/p/110025234">归纳法</a> 等。</p>
+<p>不过，这种方法理解起来比较直观，<del>而且它是我(蒟蒻)和几位数学大佬一起用了 <code>30</code> 分钟手搓出来的，为了纪念这件事，我将它写成了博客。</del></p>
 <h2 id="代码实现">代码实现</h2>
 <p>以下是计算多边形面积的 <code>C++</code> 代码：</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;stdio.h&gt;</span><span style="color:#75715e">

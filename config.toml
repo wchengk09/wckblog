@@ -1,4 +1,4 @@
 baseURL = '/'
 languageCode = 'zh-CN'
-title = 'This is WCK blog'
+title = 'WCKblog'
 theme = 'hyde'

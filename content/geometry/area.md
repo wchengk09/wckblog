@@ -1,6 +1,8 @@
 ---
-title: "Area"
+title: "简单多边形面积公式及其证明"
 date: 2024-06-02T10:09:30+08:00
+keywords: "多边形, 简单多边形, 面积, 面积公式, 计算几何, 算法, OI, 信息学, 信息学竞赛, 鞋带定理, 证明, 严格证明"
+description: "求多边形的面积在计算几何中十分重要。本文将介绍计算几何中简单多边形的面积公式，及其证明。"
 ---
 
 求多边形的面积在计算几何中十分重要。本文将介绍计算几何中 **简单多边形** 的面积公式，及其证明。
@@ -13,11 +15,11 @@ date: 2024-06-02T10:09:30+08:00
 
 例如，下图中的多边形 $ABCD$ 是一个简单多边形。
 
-![](../images/area1.png)
+![](./images/area1.png)
 
 而下图中的多边形 $EFGH$ 不是简单多边形，因为线段 $FG$ 和 $EH$ 相交了，且交点不是这两条边的端点。
 
-![](../images/area2.png)
+![](./images/area2.png)
 
 ### 向量叉乘
 
@@ -31,18 +33,17 @@ $\textbf{a}\times\textbf{b}=|\textbf{a}||\textbf{b}|sin\theta$
 
 注意，此处 $\theta$ 的值是 **有向夹角**：如果 $\textbf a$ 在 $\textbf b$ 的 **逆时针方向**（即：向量 $\textbf b$ 逆时针旋转不超过 $180^\circ$ 后与向量 $\textbf a$ 共线），则 $\theta$ 的值为 **负数**，$\textbf a\times\textbf b$ 的结果也是负数；如果向量 $\textbf{a}$ 在向量 $\textbf{b}$ 的 **顺时针方向**，则 $\theta$ 的值为 **正数**，$\textbf a\times\textbf b$ 的结果也是正数。
 
-???+ note
-    其实这个定义和[三维向量的外积](../math/linear-algebra/product.md)很相似，只不过它返回的是一个标量，而不是一个向量。
+（其实这个定义和**三维向量的外积**很相似，只不过它返回的是一个标量，而不是一个向量。）
 
 #### 几何意义
 
 两个向量叉乘的结果表示的是 **两个向量张成的平行四边形的面积**，如下图所示。
 
-![](../images/area3.png)
+![](./images/area3.png)
 
 这个值除以 $2$，就是两个向量张成的 **三角形** 的面积。
 
-![](../images/area4.png)
+![](./images/area4.png)
 
 #### 坐标表示法
 
@@ -56,16 +57,15 @@ $\overrightarrow{OA}\times\overrightarrow{OB}=x_1y_2-x_2y_1$
 
 任取一点 $O$（一般取原点），则该多边形的面积为
 
-$ S=\frac{1}{2}|\sum_{i=1}^n \overrightarrow{OP_i}\times\overrightarrow{OP_{(i\ mod\ n)\ +\ 1}}|  $
+$$ S=\frac{1}{2}|\sum_{i=1}^n \overrightarrow{OP_i}\times\overrightarrow{OP_{(i\ mod\ n)\ +\ 1}}|  $$
 
-???+ note
-    这个公式通常被称为「鞋带定理」。
+> 这个公式通常被称为「鞋带定理」。
 
 ## 感性理解
 
 首先，我们可以把公式中的 $\frac{1}{2}$ 提进来，变成：
 
-$S=|\sum_{i=1}^n\frac{\overrightarrow{OP_i}\times\overrightarrow{OP_{(i\ mod\ n)\ +\ 1}}}{2}|$
+$$S=|\sum_{i=1}^n\frac{\overrightarrow{OP_i}\times\overrightarrow{OP_{(i\ mod\ n)\ +\ 1}}}{2}|$$
 
 想一想，$\frac{\overrightarrow{OP_i}\times\overrightarrow{OP_{(i\ mod\ n)\ +\ 1}}}{2}$ 是什么意思？
 
@@ -79,29 +79,29 @@ $S=|\sum_{i=1}^n\frac{\overrightarrow{OP_i}\times\overrightarrow{OP_{(i\ mod\ n)
 
 如下图所示，蓝色的多边形（$ABCD$）是我们要计算面积的简单多边形，点 $O$ 为原点。
 
-![](../images/area5.png)
+![](./images/area5.png)
 
 首先计算 $\overrightarrow{OA}\times\overrightarrow{OB}$，得到的是 $\Delta OAB$ 的面积。
 
 因为 $\overrightarrow{OA}$ 在 $\overrightarrow{OB}$ 的 **顺时针方向**，所以得到的面积是 **正数**，答案应该 **加上** 这一块的面积。（绿色表示加上，红色表示减去）
 
-![](../images/area6.png)
+![](./images/area6.png)
 
 然后计算 $\overrightarrow{OB}\times\overrightarrow{OC}$，得到的是 $\Delta OBC$ 的面积。因为 $OB$ 在 $OC$ 的 **顺时针方向**，所以得到的面积是 **正数**。
 
-![](../images/area7.png)
+![](./images/area7.png)
 
 接下来是 $\overrightarrow{OC}\times\overrightarrow{OD}$，得到 $\Delta OCD$ 的面积。因为 $\overrightarrow{OC}$ 在 $\overrightarrow{OD}$ 的 **逆时针方向**，所以得到的面积是 **负数**。
 
-![](../images/area8.png)
+![](./images/area8.png)
 
 $\overrightarrow{OD}\times\overrightarrow{OA}$，得到 $\Delta ODA$ 的面积。由于 $\overrightarrow{OD}$ 在 $\overrightarrow{OA}$ 的 **逆时针方向**，所以得到的面积是 **负数**。
 
-![](../images/area9.png)
+![](./images/area9.png)
 
 然后你神奇地发现：四边形 $OABC$ 被加了一次，减了一次，正好抵消了！这样，就只剩下（负的）四边形 $ABCD$ 的面积了。
 
-![](../images/area10.png)
+![](./images/area10.png)
 
 有同学可能会说：你这样求的面积是负的呀！
 
@@ -125,7 +125,7 @@ $\overrightarrow{OD}\times\overrightarrow{OA}$，得到 $\Delta ODA$ 的面积�
 
 对于多边形内部一点 $P$，我们可以引一条射线 $OP$，如下图所示。
 
-![](../images/area11.png)
+![](./images/area11.png)
 
 容易发现，对于多边形的一条边 $AB$，如果 $AB$ 不与射线 $OP$ 相交，或 $AB$ 与 $OP$ 的交点在 **线段**  $OP$ 上，那么 $\Delta OAB$ 一定不会包含点 $P$，因此点 $P$ 不会产生贡献。
 
@@ -133,16 +133,13 @@ $\overrightarrow{OD}\times\overrightarrow{OA}$，得到 $\Delta ODA$ 的面积�
 
 如下图中的三条边 $BC,CD,DE$ 都符合这一条件，它们与 $OP$ 的交点分别为 $F,G,H$。
 
-![](../images/area11.png)
+![](./images/area11.png)
 
 可以发现，这样的边一定有 **奇数条**。如何证明？
 
 因为这些交点把 $OP$ 延长线分成了很多部分，而且这些部分，有些在多边形内部，有些在多边形外部，且内部和外部的部分是 **交替出现** 的。例如上图中，$PF$ 在多边形内部，$FG$ 在外部，$GH$ 在内部，$H$ 到无穷远处都在多边形的外部。
 
 同时，射线是无限长的，多边形却是有限的。因此最后一部分（点 $H$ 到无穷远处）一定在多边形外部。而点 $P$ 在多边形内部，因此分界点（交点）必须有 **奇数** 个，才能符合上述交替出现的性质。
-
-???+ note
-    其实这也是[光影投射算法](./2d/#%E5%85%89%E7%BA%BF%E6%8A%95%E5%B0%84%E7%AE%97%E6%B3%95-ray-casting-algorithm)的基本原理。
 
 并且我们发现，这些边有些是「从射线左边穿到右边」的（$CD$），有些是「从射线右边穿到左边」的（$BC$，$DE$），并且这两种边也是 **交替出现** 的。
 
@@ -168,11 +165,11 @@ $\overrightarrow{OD}\times\overrightarrow{OA}$，得到 $\Delta ODA$ 的面积�
 
 我们画一个复杂多边形，用这个公式计算它的面积，看看哪里出了问题。
 
-![](../images/area12.png)
+![](./images/area12.png)
 
-对于上图所示的复杂多边形 $ABCD$，我们用公式计算它的面积，发现：
+对于上图所示的复杂多边形 $ABCD$，我们用公式计算它的面积，发现：（大家可以在草稿纸上画一下）
 
-![](../images/area13.png)
+![](./images/area13.png)
 
 有一部分的面积是正的，有一部分的面积是负的！将这两部分的面积相加，并不能正确得到这个复杂多边形的面积。
 
@@ -180,34 +177,31 @@ $\overrightarrow{OD}\times\overrightarrow{OA}$，得到 $\Delta ODA$ 的面积�
 
 仔细想一下，一个点产生贡献的正负性，跟什么有关？
 
-一个点 $P$ 产生贡献的正负性，只与「穿过线段 $OP$ 延长线的第一条边的方向」有关。
+在分析这件事之前，我们再次观察一下这个公式：
 
-???+ note "解释" 
-    「穿过线段 $OP$ 延长线的第一条边」指的是：多边形与线段 $OP$ 延长线相交的所有边中，交点离点  $P$ 最近的那条边。
+$$ S=\frac{1}{2}|\sum_{i=1}^n \overrightarrow{OP_i}\times\overrightarrow{OP_{(i\ mod\ n)\ +\ 1}}|  $$
 
-在下图中，穿过线段 $OP$ 延长线的第一条边是 $BC$，点 $B$ 在射线 $OP$ 右侧，点 $C$ 在射线 $OP$ 左侧，此时点 $P$ 产生的贡献为 $1$。
-
-![](../images/area11.png)
-
-在下图中，穿过线段 $OP$ 延长线的第一条边 $BC$，点 $B$ 在射线 $OP$ 左侧，点 $C$ 在射线 $OP$ 右侧，此时点 $P$ 产生的贡献为 $-1$。
-
-![](../images/area14.png)
+不难发现，这个公式相当于
 
 要想证明所有的点产生贡献的符号相同，我们只需要证明：对于任意一点 $P$，穿过线段 $OP$ 延长线的第一条边方向都相同就可以了。
 
 考虑 **反证法**，假设有两点 $P,Q$，穿过 $OP$ 和 $OQ$ 延长线的第一条边方向不同。那么必然有一条边是「从左边穿到右边」，有一条边是「从右边穿到左边」，如下图所示。
 
-![](../images/area15.png)
+![](./images/area15.png)
 
 问题来了：此时点 $B$ 必须和点 $C$ 连通，点 $D$ 也必须和点 $A$ 连通。应该怎么办？
 
--   方案一：点 $B$ 与点 $C$ 的连线经过线段 $CD$ 下方，此时 $CD$ 不再是第一条边了。![](../images/area16.png)
+-   方案一：点 $B$ 与点 $C$ 的连线经过线段 $CD$ 下方，此时 $CD$ 不再是第一条边了。![](./images/area16.png)
 
--   方案二：点 $B$ 与点 $C$ 的连线经过线段 $DC$ 上方，点 $D$ 与点 $A$ 的连线也经过线段 $AB$ 上方。此时，这个多边形不再是简单多边形了。![](../images/area17.png)
+-   方案二：点 $B$ 与点 $C$ 的连线经过线段 $DC$ 上方，点 $D$ 与点 $A$ 的连线也经过线段 $AB$ 上方。此时，这个多边形不再是简单多边形了。![](./images/area17.png)
 
 因此，假设不成立。这样，我们就证明了：对于任意一点 $P$，穿过线段 $OP$ 延长线的第一条边方向都相同就可以了。
 
 $Q.E.D$。
+
+需要说明的一点是，这个定理还有其它证明方法，有些比这个方法还简单，如 [归纳法](https://zhuanlan.zhihu.com/p/110025234) 等。
+
+不过，这种方法理解起来比较直观，~~而且它是我(蒟蒻)和几位数学大佬一起用了 `30` 分钟手搓出来的，为了纪念这件事，我将它写成了博客。~~
 
 ## 代码实现
 
